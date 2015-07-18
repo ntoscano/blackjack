@@ -1,6 +1,11 @@
 
+body{
+  background-image: url('../img/cards/background.jpg');
+  background-size: 100% 100%;
+}
+
 .card {
-  float: left;
+  /*float: left;*/
   border: solid 1px black;
   border-radius: 5px;
   margin-right: 20px;
@@ -13,4 +18,5 @@
 
 .hand {
   overflow: auto;
+  text-align: center;
 }

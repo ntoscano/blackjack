@@ -18,5 +18,4 @@ class window.HandView extends Backbone.View
 
   addCard: ->
     @$el.append new CardView(model: @collection.last()).$el.fadeIn(500)
-    console.log @collection.last()
     @$('.score').text @collection.highestLegalScore()

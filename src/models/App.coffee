@@ -8,7 +8,7 @@ class window.App extends Backbone.Model
     @set 'dealerHand', deck.dealDealer()
     @get('playerHand').on 'stand', ->
       @get('dealerHand').first().flip()
-      setTimeout( @get('dealerHand').dealerHit.bind( @get('dealerHand'), @get('playerHand')), 100)
+      setTimeout( @get('dealerHand').dealerHit.bind( @get('dealerHand'), @get('playerHand')))
     , @
     @get('playerHand').on 'bust', ->
       alert 'You busted. Dealer wins!'
