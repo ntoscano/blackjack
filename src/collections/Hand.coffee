@@ -6,7 +6,8 @@ class window.Hand extends Backbone.Collection
   hit: ->
     last = @deck.pop()
     @add(last)
-    if Math.min.apply(null, @scores()) > 21 then @trigger 'bust'
+    if Math.min.apply(null, @scores()) > 21
+      setTimeout(@trigger.bind(@, 'bust'), 500)
     last
 
   hasAce: -> @reduce (memo, card) ->

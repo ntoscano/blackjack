@@ -10,8 +10,14 @@ class window.Card extends Backbone.Model
         when 11 then 'Jack'
         when 12 then 'Queen'
         else params.rank
+    @setUrl()
+
 
   flip: ->
     @set 'revealed', !@get 'revealed'
     @
 
+  setUrl: ->
+    rankName = @get('rankName').toString().toLowerCase()
+    suitName = @get('suitName').toLowerCase()
+    @set 'url',  "img/cards/#{ rankName }-#{ suitName }.png"
