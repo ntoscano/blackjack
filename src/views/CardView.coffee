@@ -3,17 +3,19 @@ class window.CardView extends Backbone.View
 
   tagName: 'span'
 
-  template: _.template "<img src=\"<%= url %>\">"
+  # template: _.template "<span></span>"
 
   initialize: ->
     @render()
     @model.on 'change:revealed', ->
-      @$el.find('img.covered').attr('src', @model.get 'url') 
+      @$el.find('span.covered').css('background-image', 'url("' + @model.get 'url' + '")') 
       @render()
     , @
 
   render: ->
     @$el.children().detach()
-    @$el.html @template @model.attributes
-    @$el.children().addClass 'covered' unless @model.get 'revealed'
-    @$el.find('img.covered').attr('src', 'img/card-back.png') 
+    # @$el.html @template @model.attributes
+    url = @model.get 'url'
+    if @model.get 'revealed' then @$el.css('background-image', 'url(' + url + ')')
+    @$el.addClass 'covered' unless @model.get 'revealed'
+    # @$el.find('.covered').toggleakljf
